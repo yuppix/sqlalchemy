@@ -712,9 +712,7 @@ class SessionTransactionTest(fixtures.RemovesEvents, FixtureTest):
             bind.mock_calls,
             [
                 mock.call.connect(),
-                mock.call.connect().execution_options(
-                    isolation_level="FOO"
-                ),
+                mock.call.connect().execution_options(isolation_level="FOO"),
                 mock.call.connect().execution_options().begin(),
             ],
         )

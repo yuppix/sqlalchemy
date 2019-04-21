@@ -628,9 +628,7 @@ class DDLTest(fixtures.TestBase, AssertsCompiledSQL):
         def executor(*a, **kw):
             return None
 
-        engine = create_mock_engine(
-            testing.db.name + "://", executor
-        )
+        engine = create_mock_engine(testing.db.name + "://", executor)
         # fmt: off
         engine.dialect.identifier_preparer = \
             tsa.sql.compiler.IdentifierPreparer(
