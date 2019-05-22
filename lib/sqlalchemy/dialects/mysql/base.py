@@ -2197,7 +2197,7 @@ class MySQLDialect(default.DefaultDialect):
         # way with their own values, see #4205
         dbapi_con = connection.connection
         cursor = dbapi_con.cursor()
-        cursor.execute("SELECT VERSION()")
+        cursor.execute("SELECT @@VERSION")
         val = cursor.fetchone()[0]
         cursor.close()
         if util.py3k and isinstance(val, bytes):
